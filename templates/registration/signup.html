@@ -1,1 +1,14 @@
-{{form}}
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+{% comment "" %}
+https://github.com/django-crispy-forms/crispy-tailwind
+{% endcomment %}
+{% block content %}
+<section class="w-1/2 mx-auto">
+<form method="POST">
+    {% csrf_token %}
+{{form|crispy}}
+<button type="submit" class="btn btn-primary"> Inscription</button>
+</form>
+</section>
+{% endblock content %}
